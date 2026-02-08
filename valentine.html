@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: pink;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      width: 300px;
+      height: 200px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      left: 50px;
+      top: 100px;
+      transition: transform 0.2s;
+    }
+
+    #no {
+      left: 180px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Will you be my Valentine? 💘</h1>
+
+<div class="buttons">
+  <button id="yes">Yes 💕</button>
+  <button id="no">No 🙄</button>
+</div>
+
+<script>
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 250;
+    const y = Math.random() * 150;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    const currentScale =
+      yesBtn.style.transform.match(/scale\(([^)]+)\)/)?.[1] || 1;
+    yesBtn.style.transform = `scale(${Number(currentScale) + 0.1})`;
+  });
+
+  yesBtn.addEventListener("click", () => {
+    document.body.innerHTML = "<h1>YAY!!! 💖🥰 See you on Valentine’s Day!</h1>";
+  });
+</script>
+
+</body>
+</html>
